@@ -1,0 +1,7 @@
+[Match]
+Name={{ switch_interface }}
+
+[Network]
+{% for no in switch_vlans %}
+VLAN=switch.{{ no }}
+{% endfor %}

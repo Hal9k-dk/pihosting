@@ -1,0 +1,7 @@
+---
+- hosts: routers
+  roles:
+    - { name: network, tags: network }
+    - { name: dnsmasq, tags: dnsmasq }
+    - { name: vpn, tags: vpn }
+    - { name: routing, tags: routing }

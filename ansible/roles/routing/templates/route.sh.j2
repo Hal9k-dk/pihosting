@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+{% for vlan in switch_vlans %}
+iptables -t nat -A POSTROUTING -o {{ vpn_interface }} -j MASQUERADE
+iptables -A FORWARD -i {{ vpn_interface }} -o switch.{{ vlan }} -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i switch.{{ vlan }} -o {{ vpn_interface }} -j ACCEPT
+
+ip -4 route add 0.0.0.0/0 dev {{ vpn_interface }} table {{ 100 + vlan }}
+ip rule add iif switch.{{ vlan }} lookup {{ 100 + vlan }}
+{% endfor %}

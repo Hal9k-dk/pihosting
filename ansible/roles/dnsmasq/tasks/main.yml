@@ -1,0 +1,26 @@
+---
+- name: install dnsmasq
+  apt:
+    name: dnsmasq
+    state: present
+    force_apt_get: true
+
+- name: ensure dnsmasq override dir exists
+  file:
+    path: /etc/systemd/system/dnsmasq.service.d
+    state: directory
+
+- name: ensure dnsmasq does not start until networking is fully configured
+  copy:
+    src: override.conf
+    dest: /etc/systemd/system/dnsmasq.service.d/override.conf
+
+- name: enable dnsmasq
+  systemd:
+    name: dnsmasq.service
+    enabled: true
+
+- name: configure dnsmasq
+  template:
+    src: dnsmasq.conf.j2
+    dest: "/etc/dnsmasq.d/dnsmasq.conf"

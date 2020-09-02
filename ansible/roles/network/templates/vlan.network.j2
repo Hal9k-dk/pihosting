@@ -1,0 +1,10 @@
+[Match]
+Name=switch.{{ item }}
+
+[Network]
+DHCP=no
+
+[Address]
+# we are heading for the 192.168.128.0/19 network
+# and the first item is always 2
+Address=192.168.{{ 126 + item }}.1/24

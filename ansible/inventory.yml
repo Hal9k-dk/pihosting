@@ -1,0 +1,12 @@
+all:
+  children:
+    routers:
+      hosts:
+        pihosting:
+          ansible_user: fas
+          ansible_become: yes
+          ansible_ssh_common_args: -F ssh_config
+          ansible_python_interpreter: /usr/bin/python3
+          switch_interface: eth0 # The physical interface connected to vlan capable switch
+          switch_vlans: "{{ range(2, 17)|list }}" # vlan ports configured
+          vpn_interface: mlvd-dk6
