@@ -1,5 +1,4 @@
 ---
-
 - name: generate route.sh
   template:
     src: route.sh.j2

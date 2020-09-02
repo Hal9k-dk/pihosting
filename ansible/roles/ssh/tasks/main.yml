@@ -1,0 +1,20 @@
+---
+- name: move sshd_config
+  file:
+    dest: /etc/ssh/sshd_config
+    src: sshd_config
+
+- name: add jump binary
+  file:
+    dest: /usr/bin/jump
+    src: jump_aarch64
+
+- name: add jump service
+  file:
+    dest: /etc/systemd/system/jump.service
+    src: jump.service
+
+- name: enable jump service
+  systemd:
+    name: jump.service
+    enabled: true

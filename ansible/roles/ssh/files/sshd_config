@@ -1,0 +1,17 @@
+Include /etc/ssh/sshd_config.d/*.conf
+
+Port 2222
+PermitRootLogin no
+
+PubkeyAuthentication yes
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+
+UsePAM yes
+PrintMotd no
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+# override default of no subsystems
+Subsystem       sftp    /usr/lib/openssh/sftp-server
