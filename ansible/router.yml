@@ -5,3 +5,4 @@
     - { name: dnsmasq, tags: dnsmasq }
     - { name: vpn, tags: vpn }
     - { name: routing, tags: routing }
+    - { name: ssh, tags: ssh }

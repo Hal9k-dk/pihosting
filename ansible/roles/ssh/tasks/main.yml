@@ -1,16 +1,17 @@
 ---
 - name: move sshd_config
-  file:
+  copy:
     dest: /etc/ssh/sshd_config
     src: sshd_config
 
 - name: add jump binary
-  file:
+  copy:
     dest: /usr/bin/jump
     src: jump_aarch64
-
+    mode: 0755
+  
 - name: add jump service
-  file:
+  copy:
     dest: /etc/systemd/system/jump.service
     src: jump.service
 
