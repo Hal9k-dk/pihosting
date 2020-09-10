@@ -1,4 +1,4 @@
 Host pihosting
     UserKnownHostsFile /known_hosts
-    Hostname 192.168.1.82
+    Hostname 10.42.2.221
     Port 2222
