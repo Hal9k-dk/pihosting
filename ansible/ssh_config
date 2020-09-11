@@ -1,4 +1,5 @@
 Host pihosting
     UserKnownHostsFile /known_hosts
-    Hostname 10.42.2.221
+    Hostname 127.0.0.1
     Port 2222
+    ProxyJump space.hal9k.dk

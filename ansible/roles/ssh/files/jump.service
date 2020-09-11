@@ -14,7 +14,7 @@ Environment=JUMP_LISTEN=0.0.0.0:22
 
 # Allow hosts from 192.168.128.1 to 192.168.143.254 
 #             from 10.42.2.1 to 10.42.3.254
-Environment=JUMP_ACCESS=192.168.128.0/20,10.42.2.0/23
+Environment=JUMP_ALLOW=192.168.128.0/20,10.42.2.0/23,127.0.0.1/32
 
 [Install]
 WantedBy=multi-user.target
